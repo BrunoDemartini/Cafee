@@ -1,23 +1,61 @@
 package br.com.bruno.cafee;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+    int precoUni = 0;
+    int cont = 1 ;
+    String bazinga = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    int precoUni = 0;
-    int cont = 1 ;
-    String bazinga = "";
+        Button button = findViewById(R.id.botao);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent sendEmail = new Intent(Intent.ACTION_SEND);
+
+                // Tipo do conteúdo.
+                sendEmail.setType("text/plain");
+
+                // Para passar os destinatários deve-se utilizar um array com
+                // os endreços de e-mails.
+                String[] addresses = {"brunorisso86@gmail.com"};
+                sendEmail.putExtra(Intent.EXTRA_EMAIL, addresses);
+
+                // Corpo do e-mail.
+                sendEmail.putExtra(Intent.EXTRA_TEXT, "Olá, quero um café!");
+
+                // Assunto do e-mail.
+                sendEmail.putExtra(Intent.EXTRA_SUBJECT, "Café!");
+
+                // Verifica se existe algum app que resolve a intent
+                if (sendEmail.resolveActivity(getPackageManager()) != null) {
+
+                    // Inicia a intent
+                    startActivity(sendEmail);
+
+                    Log.i("E-mail", "Enviei o intent!");
+                }
+                Log.i("E-mail", "Botão pressionado!");
+
+            }
+        });
+
+    }
 
     public void cafe(View view){
          precoUni= 3;
