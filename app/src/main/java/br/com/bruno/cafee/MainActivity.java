@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     int precoUni = 0;
     int cont = 1 ;
+    String bazinga = "";
 
     public void cafe(View view){
          precoUni= 3;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
          quantidade.setText(""+cont);
          TextView preco = findViewById(R.id.total);
          preco.setText("Preço Total: "+precoUni);
+
+         bazinga = texto(cont,precoUni);
+         TextView pedido = findViewById(R.id.pedido);
+         pedido.setText(bazinga);
     }
 
     public void cafeleite(View view){
@@ -34,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         quantidade.setText(""+cont);
         TextView preco = findViewById(R.id.total);
         preco.setText("Preço Total: "+precoUni);
+
+        bazinga = texto(cont,precoUni);
+        TextView pedido = findViewById(R.id.pedido);
+        pedido.setText(bazinga);
     }
 
     public void capuccino(View view){
@@ -44,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         TextView preco = findViewById(R.id.total);
         preco.setText("Preço Total: "+precoUni);
 
+        bazinga = texto(cont,precoUni);
+        TextView pedido = findViewById(R.id.pedido);
+        pedido.setText(bazinga);
+
     }
 
     public void mais(View view){
@@ -53,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
             quantidade.setText("" + cont);
             TextView preco = findViewById(R.id.total);
             preco.setText("Preço Total: "+precoUni*cont);
+
+            bazinga = texto(cont,precoUni);
+            TextView pedido = findViewById(R.id.pedido);
+            pedido.setText(bazinga);
         } else {}
     }
 
@@ -63,7 +80,22 @@ public class MainActivity extends AppCompatActivity {
             quantidade.setText(""+cont);
             TextView preco = findViewById(R.id.total);
             preco.setText("Preço Total: "+precoUni*cont);
+
+            bazinga = texto(cont,precoUni);
+            TextView pedido = findViewById(R.id.pedido);
+            pedido.setText(bazinga);
         } else{}
 
+    }
+
+    public String texto(int a, int b){
+
+        int preco = b*cont;
+        if (a == 1){
+            return "Gostaria de "+a+" cafe, por favor. O valor total será de R$ "+preco+". Vlw karai!!";
+        }
+        else{
+            return "Gostaria de "+a+" cafés, por favor. O valor total será de R$ "+preco+". Vlw karai!!";
+        }
     }
 }

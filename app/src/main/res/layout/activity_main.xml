@@ -75,6 +75,25 @@
             android:text="Fazer Pedido: "
             android:textSize="25dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pedido" />
+
+        <TextView
+            android:id="@+id/pedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/botao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fazer pedido"
+            android:textSize="20dp"/>
+
     </LinearLayout>
 
 </LinearLayout>
